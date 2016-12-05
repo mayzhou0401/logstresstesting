@@ -5,7 +5,7 @@ import threading
 import time
 import os
 
-thread_num = os.getenv('THREADNUM')
+thread_num = os.getenv('THREADNUM', 10)
 
 class myThread (threading.Thread):
     def __init__(self, name, delay):
