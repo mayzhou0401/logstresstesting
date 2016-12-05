@@ -5,7 +5,8 @@ import threading
 import time
 import os
 
-thread_num = os.getenv('THREADNUM', 10)
+thread_num = os.getenv('THREADNUM', "10")
+delay = os.getenv('DELAY', "0")
 
 class myThread (threading.Thread):
     def __init__(self, name, delay):
@@ -21,11 +22,11 @@ def print_time(threadName, delay):
     while True:
         time.sleep(delay)
         sum = sum + 1
-        print "{} runs cmd print '{}' {} times" .format(threadName, time.ctime(time.time()), sum)
+        print "{} runs cmd print '{}' for {} times" .format(threadName, time.ctime(time.time()), sum)
         # f = open("logtesting", 'a')
         # f.write(time.ctime(time.time()) + ' runs ' + str(sum) + ' times\n')
 
 print thread_num
-for i in thread_num:
-    myThread("Thread-{}".format(i), 0).start()
+for i in range(int(thread_num)):
+    myThread("Thread-{}".format(i), int(delay)).start()
 
