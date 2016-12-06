@@ -12,4 +12,5 @@ RUN chmod +x /logtesting/*
 
 WORKDIR /logtesting
 
-CMD ["/logtesting/run.sh"]
+
+CMD ["python", "/logtesting/logStressTesting.py"]
